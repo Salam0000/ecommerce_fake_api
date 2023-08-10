@@ -1,0 +1,16 @@
+<main>
+    <!-- <select name="" id="" class="form-control" (change)="filter($event)">
+        <option value="all" selected>all</option>
+        <option value="{{option}}" *ngFor="let option of categoriesFilter;let i= index">{{option}}</option>
+    </select> -->
+    <a href="" (click)="click($event,-1)">
+        All
+    </a>
+    <div class="category" *ngFor="let category of categoriesFilter;let i= index">
+        <a href="" (click)="click($event,i)">
+            {{category}}
+        </a>
+
+    </div>
+
+</main>

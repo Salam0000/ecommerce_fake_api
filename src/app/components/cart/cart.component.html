@@ -1,0 +1,59 @@
+<h1>Shopping cart</h1>
+<div class="first_row">
+    <h3>
+        You have <span> {{carts.length}}</span> item in your cart
+    </h3>
+    <button class="clear" (click)="clearCart()">
+        Clear Shopping Cart
+    </button>
+</div>
+<table border="1" width="90%" cellPadding="4">
+    <tr>
+        <th>image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>#</th>
+    </tr>
+    <tr *ngIf="carts.length<1 && !isFetching">
+        <td [colSpan]="5">no carts available</td>
+    </tr>
+    <tr *ngIf="isFetching">
+        <td [colSpan]="5">
+            <div class="loader"></div>
+        </td>
+    </tr>
+    <ng-container *ngIf="!isFetching">
+        <tr *ngFor="let cart of carts;index as i">
+            <td>
+                <div class="image">
+                    <img [src]="cart.product.image" alt="">
+                </div>
+            </td>
+            <td>{{ cart.product.title }}</td>
+            <td>{{ cart.product.price }}</td>
+            <td>
+                <div class="count_row">
+                    <button class="minus" (click)="minusAmount(i)">-</button>
+                    <div class="count">{{cart.quantity}}</div>
+                    <button class="add" (click)="addAmount(i)">+</button>
+                </div>
+            </td>
+            <td> {{getTotal(cart.product.price,cart.quantity)}}</td>
+            <td>
+                <button class="btn-delete" (click)="onCartDelete(i)">Delete</button>
+            </td>
+
+        </tr>
+    </ng-container>
+
+</table>
+<div class="last_row">
+    <h3>
+        Total : {{getTotalCart()}}
+    </h3>
+    <button class="order" (click)="addCart()">
+        Order Now
+    </button>
+</div>

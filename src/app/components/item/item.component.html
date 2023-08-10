@@ -1,0 +1,28 @@
+<div class="image">
+    <img [src]="product.image" alt="">
+</div>
+<div class="category">
+    {{product.category | lowercase}}
+</div>
+<h3>
+    {{product.title.length<20?product.title:product.title!.slice(0,25)}} ...</h3>
+        <div class="price">
+            ${{product.price}}
+        </div>
+        <!-- <div class="date">
+    uppercase and lowercase run on string not date
+    anything change in non-premitive we can not edit or add directly in opposite of the premitive
+    {{product.date | date:'fullDate' | uppercase}}
+</div> -->
+        <div class="discount_row">
+            <span>{{product.rating.count | percentage : 8 : 2}}</span>
+            <button>save {{product.rating.rate | percent}}</button>
+        </div>
+        <div class="cart_row">
+            <button *ngIf="!addButton" (click)="addButton=true">ADD TO CART</button>
+            <div *ngIf="addButton">
+                <input type="number" class="form-controll" [(ngModel)]="amount">
+                <button (click)="addProduct(product);addButton=false">add</button>
+            </div>
+            <button routerLink="/Product/{{product.id}}"><i class='bx bx-show'></i></button>
+        </div>

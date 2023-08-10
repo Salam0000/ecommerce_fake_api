@@ -1,0 +1,36 @@
+<div class="product">
+    <div class="left_column">
+        <div class="category">
+            <span>{{product.category}}</span> / {{product.title}}
+        </div>
+        <h1>
+            {{product.title}}
+        </h1>
+        <app-rating [rating]="product.rating.rate"></app-rating>
+
+        <div class="price_row">
+            <span> ${{product.price}} </span>
+        </div>
+        <div class="discount_row">
+            <span>{{product.rating.count}}</span>
+            <span>save{{product.rating.rate}}/5.0</span>
+        </div>
+        <div class="description">
+            {{product.description}}
+        </div>
+        <div class="last_line">
+            <div class="count_row">
+                <button class="minus" (click)="minusAmount()">-</button>
+                <div class="count">0</div>
+                <button class="add" (click)="addAmount()">+</button>
+            </div>
+            <input type="button" value=" Add to cart" (click)="addProduct(product)">
+        </div>
+    </div>
+    <div class="right_column">
+        <div class="image">
+            <img [src]="product.image" alt="">
+        </div>
+    </div>
+
+</div>

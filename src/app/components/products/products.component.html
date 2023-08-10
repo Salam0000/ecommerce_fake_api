@@ -1,0 +1,11 @@
+<div *ngIf="isFetching">
+    <div class="loader"></div>
+</div>
+<div *ngIf="!isFetching">
+    <app-filter (filterRadioButtonSelectionChanged)="fromChild($event)"></app-filter>
+    <div class="container">
+        <div class="product" *ngFor="let product of productsFilter">
+            <app-item [product]="product"></app-item>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+.container {
+    z-index: -2;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 60%;
+    margin: 50px auto;
+    background-color: #be123c;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.container .left_column {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container .form {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form {
+    width: 70%;
+    position: relative;
+    border-radius: 10px;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+form::after {
+    content: "";
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    position: absolute;
+    border-radius: 50%;
+    top: -100px;
+    right: -50px;
+    overflow: hidden;
+    z-index: -1;
+
+}
+
+form::before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    position: absolute;
+    border-radius: 50%;
+    bottom: -100px;
+    left: -50px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+form input {
+    width: 80%;
+    height: 30px;
+    margin: 10px;
+}
+
+form textarea {
+    width: 80%;
+    height: 80px;
+}
+
+form input:last-child {
+    width: 50%;
+    background-color: #be123c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    justify-self: flex-end;
+}
+
+ul {
+    list-style: none;
+}
+
+.social {
+    font-size: 1.5rem;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+i {
+    color: white;
+}
